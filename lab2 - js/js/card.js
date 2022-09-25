@@ -21,8 +21,10 @@ export default class Card {
     console.log("Rendering card...");
 
     // 🔥🔥🔥 TODO3: build the HTML element and append it to the DOM
-    // let card = document.createElement("div");
-    // card.dataset.number = counter + 1;
+    let card = document.createElement("div");
+    card.dataset.number = counter + 1;
+    card.appendChild()
+
     // don't forget to append the child to to DOM
 
     // 🔥🔥🔥 TODO4: when we click an item, we want to check for winners and we want to save the selection to storage
