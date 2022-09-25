@@ -23,7 +23,9 @@ export default class Card {
     // 🔥🔥🔥 TODO3: build the HTML element and append it to the DOM
     let card = document.createElement("div");
     card.dataset.number = counter + 1;
-    card.appendChild()
+    let cards = document.querySelector(".bingo__board");
+    cards.appendChild(card);
+    
 
     // don't forget to append the child to to DOM
 
