@@ -22,9 +22,12 @@ export default class Card {
 
     // 🔥🔥🔥 TODO3: build the HTML element and append it to the DOM
     let card = document.createElement("div");
+    card.classList.add("bingo__card");
     card.dataset.number = counter + 1;
+    card.setAttribute("id", `bingo__card${counter+1}.`);
     let cards = document.querySelector(".bingo__board");
     cards.appendChild(card);
+    console.log(counter);
     
 
     // don't forget to append the child to to DOM
