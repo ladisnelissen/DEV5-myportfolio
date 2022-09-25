@@ -87,10 +87,10 @@ export default class Bingo {
 
     // if there are not done cards, remove localstorage
     if (cards.length === 0) {
-      localStorage.removeItem("cardsWon");
+      localStorage.removeItem("bingo");
     // remove localstorage
     }
-    localStorage["cardsWon"] = JSON.stringify(cardsWon);
+    localStorage["bingo"] = JSON.stringify(cardsWon);
     // save a selection like [1, 7, 8] to localstorage item "bingo"
     // you might want to check out how JSON.stringify() works
   }
@@ -104,7 +104,11 @@ export default class Bingo {
 
     // check if localstorage item exists
     if (localStorage.getItem("bingo")) {
-      // let cardsWon = JSON.parse();
+      let cardsWon = JSON.parse(localStorage["bingo"]);
+      for(let i = 0; i<cardsWon.length;i++) {
+        let doc = document.getElementById(`bingo__card${cardsWon[i]}`)
+        doc.classList.add(".bingo__card--done");
+      }
       // JSON.parse() will convert the string [1, 7, 8] back to an array which you can loop
       // loop over the numbers 1, 7, 8 and mark those cards as done by adding the right CSS class
       // .bingo__card--done
