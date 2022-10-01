@@ -1,6 +1,8 @@
 # LAB1
 
 Link to my portfolio repository: https://github.com/ladisnelissen/DEV5-myportfolio
+Link to my Opensea Vault: https://opensea.io/NFTinitcom_oshiVault
+Goal: get my programming skills on the same level as my NFT flipping skills
 
 ## 👨🏻‍🔬 Labs
 
