@@ -107,7 +107,6 @@ export default class Bingo {
       for(let i = 0; i<storedCards.length; i++) {
         let done = document.getElementById(`bingo__card${storedCards[i]}`)
         done.classList.add("bingo__card--done");
-        console.log(done);
       }
     }
       // JSON.parse() will convert the string [1, 7, 8] back to an array which you can loop
