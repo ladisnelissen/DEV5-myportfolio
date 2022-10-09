@@ -3,7 +3,7 @@ export default class Weather {
     constructor(api_key) {
         this.apiKey = api_key;
     
-        if(localStorage.getItem("weather") && Date.now() - localStorage.getItem("weather") < 600000) {
+        if(localStorage.getItem("weather") && Date.now() - localStorage.getItem("weather") < 3600000) {
             this.weather = JSON.parse(localStorage.getItem("weather"));
         } else {
             this.getLocation();
@@ -41,8 +41,39 @@ export default class Weather {
         const weather = data.current.condition.text;
         const location = data.location.country;
 
-        document.querySelector(".weather").innerHTML = temp + " " + weather + " " + location;
-
+        document.querySelector(".weather").innerHTML = "It is "+ temp + "°C and it is " + weather + " in " + location;
     }
+    
+    getBooks(temp) {
+        let book = "";
+
+        switch(temp) {
+            case temp < 0:
+                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                break;
+            case temp < 10:
+                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                break;
+            case temp < 20:
+                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                break;
+            case temp < 30:
+                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                break;
+        }
+    }
+
+    //fetch data from gutenburg api
+    getBooks() {
+        let url = `http://gutendex.com/books/?topic=weather`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.books = data;
+                localStorage.setItem("books", JSON.stringify(data));
+              localStorage.setItem("booksTime", Date.now());
+               this.displayBooks(data);
+            });
+
         
 }
