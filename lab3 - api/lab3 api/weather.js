@@ -21,7 +21,7 @@ export default class Weather {
     getWeather(position) {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        //use url to fetch weather data from weatherapi
+        //use url to fetch weather data from weatherapi with metric units
         let url = `https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${lat},${lon}&aqi=no`;
 
         
@@ -33,8 +33,16 @@ export default class Weather {
                 localStorage.setItem("weatherTime", Date.now());
                 this.displayWeather(data);
             });
+
     }
 
+    displayWeather(data) {
+        const temp = data.current.temp_f;
+        const weather = data.current.condition.text;
+        const location = data.location.country;
 
+        document.querySelector(".weather").innerHTML = temp + " " + weather + " " + location;
+
+    }
         
 }
