@@ -10,6 +10,14 @@ export default class Weather {
         }
     }
 
-   
+    getlocation() {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    
         
 }
