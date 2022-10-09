@@ -37,7 +37,7 @@ export default class Weather {
     }
 
     displayWeather(data) {
-        const temp = data.current.temp_f;
+        const temp = ((data.current.temp_f)-32)*(5/9);
         const weather = data.current.condition.text;
         const location = data.location.country;
 
