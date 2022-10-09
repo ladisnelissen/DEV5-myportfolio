@@ -1,12 +1,15 @@
 
 export default class Weather {
-    constructor() {
-        this.lat = 0;
-        this.lon = 0;
-        navigator.geolocation.getCurrentPosition(this.getCoords.bind(this));
+    constructor(api_key) {
+        this.apiKey = api_key;
+    
+        if(localStorage.getItem("weather") && Date.now() - localStorage.getItem("weather") < 600000) {
+            this.weather = JSON.parse(localStorage.getItem("weather"));
+        } else {
+            this.getLocation();
+        }
     }
 
-    getCurrentPosition(position) {
+   
         
-    }
 }
