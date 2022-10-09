@@ -5,4 +5,8 @@ export default class Weather {
         this.lon = 0;
         navigator.geolocation.getCurrentPosition(this.getCoords.bind(this));
     }
+
+    getCurrentPosition(position) {
+        
+    }
 }
