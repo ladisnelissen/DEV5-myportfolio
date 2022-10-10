@@ -41,7 +41,7 @@ export default class Weather {
         const weather = data.current.condition.text;
         const location = data.location.country;
         //execute getBooks function
-        this.getBooks(temp);
+        this.getBooks(data);
 
         document.querySelector(".weather").innerHTML = "It is "+ temp + "°C and it is " + weather + " in " + location;
     }
@@ -74,8 +74,11 @@ export default class Weather {
         fetch('https://imdb8.p.rapidapi.com/title/find?q=rebels', options)
             .then(response => response.json())
             .then(data => {
-                let movie = data[0][results][title];})
+                //console log title of movie
+                console.log(data.results[0].title);
                 
+                }
+            )
             .catch(err => console.error(err));
     }
 
