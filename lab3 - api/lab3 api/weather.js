@@ -37,7 +37,7 @@ export default class Weather {
     }
 
     displayWeather(data) {
-        const temp = ((data.current.temp_f)-32)*(5/9);
+        const temp = Math.round(((data.current.temp_f)-32)*(5/9));
         const weather = data.current.condition.text;
         const location = data.location.country;
 
@@ -64,16 +64,15 @@ export default class Weather {
     }
 
     //fetch data from gutenburg api
-    getBooks() {
-        let url = `http://gutendex.com/books/?topic=weather`;
+   fetchBooks() {
+        let url = `http://gutendex.com/books`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                this.books = data;
-                localStorage.setItem("books", JSON.stringify(data));
-              localStorage.setItem("booksTime", Date.now());
-               this.displayBooks(data);
+                let name = data.results[0].title;
+                document.querySelector(".title").innerHTML = name;
             });
 
         
+        }
 }
