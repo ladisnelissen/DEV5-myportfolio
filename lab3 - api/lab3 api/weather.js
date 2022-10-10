@@ -61,23 +61,18 @@ export default class Weather {
                 movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
         }
-
         const options = {
             method: 'GET',
-            headers: {'X-RapidAPI-Key': 'f00c8c6954msh370a462bdabc201p135de7jsnb4ea2b02d3ff', 
-            'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'}
+            headers: {
+                'X-RapidAPI-Key': '744050e180msh434911057e03b99p1dc403jsnc1ec10613d3c',
+                'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+            }
         };
-
-        fetch('https://imdb8.p.rapidapi.com/auto-complete?q=game%20of%20thr', options)
+        
+        fetch('https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr', options)
             .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                
-                ;})
-
-
-
+            .then(response => console.log(response))
             .catch(err => console.error(err));
     }
-   
+
 }
