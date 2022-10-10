@@ -64,25 +64,20 @@ export default class Weather {
 
         const options = {
             method: 'GET',
-            headers: {'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', 'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'}
+            headers: {'X-RapidAPI-Key': 'f00c8c6954msh370a462bdabc201p135de7jsnb4ea2b02d3ff', 
+            'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'}
         };
 
         fetch('https://imdb8.p.rapidapi.com/auto-complete?q=game%20of%20thr', options)
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(data => {
+                console.log(data);
+                
+                ;})
+
+
+
             .catch(err => console.error(err));
     }
-
-    //fetch data from gutenburg api
-   fetchBooks() {
-        let url = `http://gutendex.com/books`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                let name = data.results[0].title;
-                document.querySelector(".title").innerHTML = name;
-            });
-
-        
-        }
+   
 }
