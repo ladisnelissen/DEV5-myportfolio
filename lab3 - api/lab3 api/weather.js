@@ -40,6 +40,8 @@ export default class Weather {
         const temp = Math.round(((data.current.temp_f)-32)*(5/9));
         const weather = data.current.condition.text;
         const location = data.location.country;
+        //execute getBooks function
+        this.getBooks(temp);
 
         document.querySelector(".weather").innerHTML = "It is "+ temp + "°C and it is " + weather + " in " + location;
     }
@@ -69,9 +71,11 @@ export default class Weather {
             }
         };
         
-        fetch('https://imdb8.p.rapidapi.com/title/find?q=game%20of%20thr', options)
+        fetch('https://imdb8.p.rapidapi.com/title/find?q=rebels', options)
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(data => {
+                let movie = data[0][results][title];})
+                
             .catch(err => console.error(err));
     }
 
