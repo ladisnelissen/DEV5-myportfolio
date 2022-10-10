@@ -45,20 +45,20 @@ export default class Weather {
     }
     
     getBooks(temp) {
-        let book = "";
+        let movie = "";
 
         switch(temp) {
             case temp < 0:
-                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
             case temp < 10:
-                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
             case temp < 20:
-                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
             case temp < 30:
-                book = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
         }
     }
