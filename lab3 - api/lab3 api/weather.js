@@ -61,6 +61,11 @@ export default class Weather {
                 movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
                 break;
         }
+
+        const options = {
+            method: 'GET',
+            headers: {'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY', 'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'}
+        };
     }
 
     //fetch data from gutenburg api
