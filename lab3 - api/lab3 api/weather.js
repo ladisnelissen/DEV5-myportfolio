@@ -43,7 +43,7 @@ export default class Weather {
         //execute getBooks function
         this.getBooks(data);
 
-        document.querySelector(".weather").innerHTML = "It is "+ temp + " in " + location;
+        document.querySelector(".weather").innerHTML = "It is "+ temp + "°C in " + location;
     }
     
     getBooks(temp) {
@@ -82,8 +82,9 @@ export default class Weather {
                 //convert duration to hours and minutes
                 let hours = Math.floor(duration / 60);
                 let minutes = duration % 60;
+                let movieTitle = data.results[0].title;
                 //display movie title and duration
-                document.querySelector(".title").innerHTML = "You should watch " + movie + " which is " + hours + " hours and " + minutes + " minutes long.";
+                document.querySelector(".title").innerHTML = "You should watch " + movieTitle + " which is " + hours + " hours and " + minutes + " minutes long.";
                 
 
                 let app = document.getElementById('app');
@@ -93,9 +94,6 @@ export default class Weather {
                 app.style.backgroundPosition = "center";
                 //set app background repeat to no-repeat
                 app.style.backgroundRepeat = "no-repeat";
-
-                let putData = document.querySelector(".title");
-                putData.innerHTML = title;
 
                 }
             )
