@@ -49,20 +49,18 @@ export default class Weather {
     getBooks(temp) {
         let movie;
 
-        switch(Math.round(((temp.current.temp_f)-32)*(5/9))) {
-            case temp < 0:
-                movie = "Turist";
-                break;
-            case temp < 10:
-                movie = "Autumn Dreams";
-                break;
-            case temp < 20:
-                movie = "Prom";
-                break;
-            case temp < 30:
-                movie = "Midsommar";
-                break;
+        //store current temperatur in celcius
+        let tempCelcius = Math.round(((temp.current.temp_f)-32)*(5/9));
+
+
+        if(tempCelcius < 0) {
+            movie = "Ice Age";
+        } else if(tempCelcius < 10) {
+            movie = "Spring Breakers";
+        } else {
+            movie = "Baywatch";
         }
+
 
     
         const options = {
@@ -83,7 +81,8 @@ export default class Weather {
                 let minutes = duration % 60;
                 let movieTitle = data.results[0].title;
                 //display movie title and duration
-                document.querySelector(".title").innerHTML = "You should watch " + movieTitle + " which is " + hours + " hours and " + minutes + " minutes long.";
+                document.querySelector(".title").innerHTML = "You should watch " + movieTitle + 
+                " which is " + hours + " hours and " + minutes + " minutes long.";
                 
 
                 let app = document.getElementById('app');
@@ -93,6 +92,9 @@ export default class Weather {
                 app.style.backgroundPosition = "center";
                 //set app background repeat to no-repeat
                 app.style.backgroundRepeat = "no-repeat";
+                //set app background size to cover
+                app.style.backgroundSize = "cover";
+            
 
                 }
             )
