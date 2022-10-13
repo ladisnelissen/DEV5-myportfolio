@@ -47,22 +47,25 @@ export default class Weather {
     }
     
     getBooks(temp) {
-        let movie = "";
+        
+        let movie;
 
         switch(temp) {
             case temp < 0:
-                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "Turist";
                 break;
             case temp < 10:
-                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "Autumn Dreams";
                 break;
             case temp < 20:
-                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "Prom";
                 break;
             case temp < 30:
-                movie = "https://www.goodreads.com/book/show/18143.The_Great_Gatsby";
+                movie = "Midsommar";
                 break;
         }
+
+    
         const options = {
             method: 'GET',
             headers: {
@@ -71,12 +74,15 @@ export default class Weather {
             }
         };
         
-        fetch('https://imdb8.p.rapidapi.com/title/find?q=rebels', options)
+        fetch(`https://imdb8.p.rapidapi.com/title/find?q=Spring`, options)
             .then(response => response.json())
             .then(data => {
                 //console log title of movie
-                console.log(data.results[0].title);
-                
+                let title = data.results[0].title;
+                console.log(data.results[0])
+                let putData = document.querySelector(".title");
+                putData.innerHTML = title;
+
                 }
             )
             .catch(err => console.error(err));
