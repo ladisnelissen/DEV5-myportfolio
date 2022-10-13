@@ -43,7 +43,7 @@ export default class Weather {
         //execute getBooks function
         this.getBooks(data);
 
-        document.querySelector(".weather").innerHTML = "It is "+ temp + "°C and it is " + weather + " in " + location;
+        document.querySelector(".weather").innerHTML = "It is "+ temp + " in " + location;
     }
     
     getBooks(temp) {
@@ -78,8 +78,14 @@ export default class Weather {
             .then(response => response.json())
             .then(data => {
                 //console log title of movie
-                let title = data.results[0].runningTimeInMinutes;
-                console.log(duration);
+                let duration = data.results[0].runningTimeInMinutes;
+                //convert duration to hours and minutes
+                let hours = Math.floor(duration / 60);
+                let minutes = duration % 60;
+                //display movie title and duration
+                document.querySelector(".title").innerHTML = "You should watch " + movie + " which is " + hours + " hours and " + minutes + " minutes long.";
+                
+
                 let app = document.getElementById('app');
                 //set app background image to movie image
                 app.style.backgroundImage = "url(" + data.results[0].image.url + ")";
