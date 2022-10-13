@@ -52,16 +52,13 @@ export default class Weather {
         //store current temperatur in celcius
         let tempCelcius = Math.round(((temp.current.temp_f)-32)*(5/9));
 
-
         if(tempCelcius < 0) {
             movie = "Ice Age";
-        } else if(tempCelcius < 10) {
-            movie = "Spring Breakers";
+        } else if(tempCelcius < 20) {
+            movie = "Holiday Inn";
         } else {
             movie = "Baywatch";
         }
-
-
     
         const options = {
             method: 'GET',
