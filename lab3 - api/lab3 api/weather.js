@@ -78,8 +78,8 @@ export default class Weather {
             .then(response => response.json())
             .then(data => {
                 //console log title of movie
-                let title = data.results[0].title;
-                console.log(data.results[0].image.url);
+                let title = data.results[0].runningTimeInMinutes;
+                console.log(duration);
                 let app = document.getElementById('app');
                 //set app background image to movie image
                 app.style.backgroundImage = "url(" + data.results[0].image.url + ")";
