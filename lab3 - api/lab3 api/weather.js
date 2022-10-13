@@ -94,7 +94,8 @@ export default class Weather {
                 app.style.backgroundRepeat = "no-repeat";
                 //set app background size to cover
                 app.style.backgroundSize = "cover";
-            
+
+
 
                 }
             )
