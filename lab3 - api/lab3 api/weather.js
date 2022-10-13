@@ -47,10 +47,9 @@ export default class Weather {
     }
     
     getBooks(temp) {
-        
         let movie;
 
-        switch(temp) {
+        switch(Math.round(((temp.current.temp_f)-32)*(5/9))) {
             case temp < 0:
                 movie = "Turist";
                 break;
@@ -74,7 +73,7 @@ export default class Weather {
             }
         };
         
-        fetch(`https://imdb8.p.rapidapi.com/title/find?q=Spring`, options)
+        fetch(`https://imdb8.p.rapidapi.com/title/find?q=${movie}`, options)
             .then(response => response.json())
             .then(data => {
                 //console log title of movie
