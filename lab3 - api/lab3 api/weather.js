@@ -80,12 +80,10 @@ export default class Weather {
                 //console log title of movie
                 let title = data.results[0].title;
                 console.log(data.results[0].image.url);
-                let app = querySelector("#app");
+                let app = document.getElementById('app');
                 //set app background image to movie image
                 app.style.backgroundImage = "url(" + data.results[0].image.url + ")";
                 //set app background size to cover
-                app.style.backgroundSize = "cover";
-                //set app background position to center
                 app.style.backgroundPosition = "center";
                 //set app background repeat to no-repeat
                 app.style.backgroundRepeat = "no-repeat";
