@@ -32,6 +32,24 @@ const scene = new THREE.Scene();
       walls.position.y = 1.25;
       house.add(walls);
 
+      //roof
+      const roof = new THREE.Mesh(
+        new THREE.ConeGeometry(3.5,1,4),
+        new THREE.MeshBasicMaterial({color: 0x885522})
+      );
+      roof.position.y = 2.5 + 0.5;
+      roof.rotation.y = Math.PI * 0.25;
+      house.add(roof);
+
+      //door
+      const door = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.5,1),
+        new THREE.MeshBasicMaterial({color: 0x884422})
+      );
+      door.position.y = 0.5;
+      door.position.z = 2 + 0.01;
+      house.add(door);
+
 
 			function animate() {
 				requestAnimationFrame( animate );
