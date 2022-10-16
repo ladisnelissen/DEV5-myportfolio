@@ -50,12 +50,6 @@ const scene = new THREE.Scene();
       door.position.z = 2 + 0.01;
       house.add(door);
 
-      //use bricks jpg as texture
-      const loader = new THREE.TextureLoader();
-      const texture = loader.load('/textures/bricks.jpg');
-      const wallMaterial = new THREE.MeshLambertMaterial({color: 0xffffff})
-      wallMaterial.map = texture;
-
 			function animate() {
 				requestAnimationFrame( animate );
 
