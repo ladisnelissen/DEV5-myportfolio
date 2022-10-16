@@ -19,6 +19,10 @@ const scene = new THREE.Scene();
 
 			camera.position.z = 5;
 
+      //add orbit controls
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+
 			function animate() {
 				requestAnimationFrame( animate );
 
