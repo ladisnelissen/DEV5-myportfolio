@@ -5,6 +5,8 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 //import font loader
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
+//import text geometry
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 
 
 
@@ -76,27 +78,26 @@ const scene = new THREE.Scene();
 
       //add text to plane
       const fontLoader = new FontLoader();
-      fontLoader.load('node_modules/fonts/helvetiker_regular.typeface.json', (font) => {
-        const textGeometry = new THREE.TextGeometry(
-          'Home',
+      fontLoader.load('node_modules/three/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+        const textGeometry = new TextGeometry(
+          'Ladis',
           {
             font: font,
             size: 0.2,
             height: 0.05,
             curveSegments: 12,
             bevelEnabled: true,
-            bevelThickness: 0.05,
-            bevelSize: 0.03,
+            bevelThickness: 0.01,
+            bevelSize: 0.01,
             bevelOffset: 0,
-            bevelSegments: 5
+            bevelSegments: 8
           }
         );
-          
         const textMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
         const text = new THREE.Mesh(textGeometry, textMaterial);
-        text.position.y = 1.3;
+        text.position.y = 1.2;
         text.position.z = 2 + 0.03;
-        text.position.x = -0.25;
+        text.position.x = -0.35;
         house.add(text);
       });
 
