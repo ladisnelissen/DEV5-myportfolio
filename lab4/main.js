@@ -20,6 +20,20 @@ const scene = new THREE.Scene();
 
 			camera.position.z = 5;
 
+      //add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+
+      //add directional light
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight.position.set(3, 3, 1);
+      scene.add(directionalLight);
+
+      //add directional light helper
+      const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2);
+      scene.add(directionalLightHelper);
+
+
       //add orbit controls
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
@@ -109,7 +123,7 @@ const scene = new THREE.Scene();
       grass.rotation.x = - Math.PI * 0.5;
       scene.add(grass);
 
-
+      
 
 			function animate() {
 				requestAnimationFrame( animate );
