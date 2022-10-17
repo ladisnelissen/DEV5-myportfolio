@@ -18,21 +18,23 @@ const scene = new THREE.Scene();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
+      
 			camera.position.z = 5;
-
-      //add ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
 
       //add directional light
       const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-      directionalLight.position.set(3, 3, 1);
+      directionalLight.position.set(9, 9, 2);
       scene.add(directionalLight);
+
+      
+      directionalLight.shadow.mapSize.width = 512; // default
+      directionalLight.shadow.mapSize.height = 512; // default
+      directionalLight.shadow.camera.near = 0.5; // default
+      directionalLight.shadow.camera.far = 500; // default
 
       //add directional light helper
       const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2);
       scene.add(directionalLightHelper);
-
 
       //add orbit controls
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -121,8 +123,11 @@ const scene = new THREE.Scene();
         new THREE.MeshBasicMaterial({color: 0x00ff00})
       );
       grass.rotation.x = - Math.PI * 0.5;
+      plane.receiveShadow = true;
       scene.add(grass);
 
+      const helper = new THREE.CameraHelper( light.shadow.camera );
+      scene.add( helper );
       
 
 			function animate() {
