@@ -76,7 +76,7 @@ const scene = new THREE.Scene();
 
       //add text to plane
       const fontLoader = new FontLoader();
-      fontLoader.load('/fonts/helvetiker_regular.typeface.json', (font) => {
+      fontLoader.load('node_modules/fonts/helvetiker_regular.typeface.json', (font) => {
         const textGeometry = new THREE.TextGeometry(
           'Home',
           {
