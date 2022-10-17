@@ -70,7 +70,7 @@ const scene = new THREE.Scene();
       //add plane with name on top of door
       const plane = new THREE.Mesh(
         new THREE.PlaneGeometry(1,0.5),
-        new THREE.MeshBasicMaterial({color: 0x000000})
+        new THREE.MeshBasicMaterial({color: 0xffffff})
       );
       plane.position.y = 1.3;
       plane.position.z = 2 + 0.02;
@@ -93,7 +93,7 @@ const scene = new THREE.Scene();
             bevelSegments: 8
           }
         );
-        const textMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
+        const textMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
         const text = new THREE.Mesh(textGeometry, textMaterial);
         text.position.y = 1.2;
         text.position.z = 2 + 0.03;
