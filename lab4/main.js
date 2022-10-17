@@ -100,6 +100,14 @@ const scene = new THREE.Scene();
         house.add(text);
       });
 
+      //add plane as grass
+      const grass = new THREE.Mesh(
+        new THREE.PlaneGeometry(20,20),
+        new THREE.MeshBasicMaterial({color: 0x00ff00})
+      );
+      grass.rotation.x = - Math.PI * 0.5;
+      scene.add(grass);
+
 
 
 			function animate() {
