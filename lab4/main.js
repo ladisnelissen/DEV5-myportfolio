@@ -125,7 +125,18 @@ const scene = new THREE.Scene();
       grass.rotation.x = - Math.PI * 0.5;
       scene.add(grass);
 
-      
+      const galaxyTexture = textureLoader.load('/textures/galaxy.webp');
+
+
+      const sphereGeometry = new THREE.SphereGeometry(100, 32, 32);
+      const sphereMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
+      sphereMaterial.map = galaxyTexture;
+      sphereMaterial.side = THREE.BackSide;
+      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      sphere.position.set(1, 1, 1);
+      scene.add(sphere);
+
+
 
 			function animate() {
 				requestAnimationFrame( animate );
