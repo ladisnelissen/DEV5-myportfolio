@@ -145,6 +145,22 @@ const scene = new THREE.Scene();
         gltf.scene.rotation.x = Math.PI * 0.5;
       });  
 
+
+      //load 100 eth models
+      const ethLoader = new GLTFLoader();
+      const ethArray = [];
+      for (let i = 0; i < 100; i++) {
+        ethLoader.load('/textures/eth/scene.gltf', (gltf) => {
+          ethArray.push(gltf.scene);
+          gltf.scene.scale.set(0.5, 0.5, 0.5);
+          gltf.scene.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50);
+          scene.add(gltf.scene);
+          //rotate nft
+          gltf.scene.rotation.y = Math.PI * 0.5;
+          gltf.scene.rotation.x = Math.PI * 0.5;
+        });
+      }
+      
 			function animate() {
 				requestAnimationFrame( animate );
 
@@ -155,6 +171,8 @@ const scene = new THREE.Scene();
         if(nft) {
           nft.rotation.y += 0.01;
         }
+
+        
 
 			};
 
