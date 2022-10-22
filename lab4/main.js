@@ -122,7 +122,7 @@ const scene = new THREE.Scene();
       grass.rotation.x = - Math.PI * 0.5;
       scene.add(grass);
 
-      const galaxyTexture = textureLoader.load('/textures/galaxy.webp');
+      const galaxyTexture = textureLoader.load('/textures/future.jpg');
 
 
       const sphereGeometry = new THREE.SphereGeometry(100, 32, 32);
@@ -176,7 +176,7 @@ const scene = new THREE.Scene();
         directionalLight.position.x = Math.cos(Date.now() / 1000) * 3;
         directionalLight.position.z = Math.sin(Date.now() / 1000) * 3;
         directionalLight.position.y = Math.sin(Date.now() / 1000) * 3;
-        
+
 
 			};
 
