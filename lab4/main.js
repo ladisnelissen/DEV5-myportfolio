@@ -54,7 +54,7 @@ const scene = new THREE.Scene();
       house.add(walls);
 
       //texture for roof
-      const roofTexture = textureLoader.load('public/roof.jpg');
+      const roofTexture = textureLoader.load('/roof.jpg');
       const roofMaterial = new THREE.MeshBasicMaterial({map: roofTexture});
       roofTexture.wrapS = THREE.RepeatWrapping;
       roofTexture.wrapT = THREE.RepeatWrapping;
@@ -116,13 +116,13 @@ const scene = new THREE.Scene();
       //add plane as grass
       const grass = new THREE.Mesh(
         new THREE.PlaneGeometry(20,20),
-        new THREE.MeshBasicMaterial({map: textureLoader.load('public/bored.webp')})
+        new THREE.MeshBasicMaterial({map: textureLoader.load('/bored.webp')})
 
       );
       grass.rotation.x = - Math.PI * 0.5;
       scene.add(grass);
 
-      const galaxyTexture = textureLoader.load('/public/future.jpg');
+      const galaxyTexture = textureLoader.load('/future.jpg');
 
 
       const sphereGeometry = new THREE.SphereGeometry(100, 32, 32);
@@ -135,7 +135,7 @@ const scene = new THREE.Scene();
 
       let nft;
       const gltfLoader = new GLTFLoader();
-      gltfLoader.load('public/gltf/scene.gltf', (gltf) => {
+      gltfLoader.load('/gltf/scene.gltf', (gltf) => {
         nft = gltf.scene;
         gltf.scene.scale.set(0.8, 0.8, 0.8);
         gltf.scene.position.set(0, 0.5, 5);
@@ -149,7 +149,7 @@ const scene = new THREE.Scene();
       const ethLoader = new GLTFLoader();
       const ethArray = [];
       for (let i = 0; i < 100; i++) {
-        ethLoader.load('public/eth/scene.gltf', (gltf) => {
+        ethLoader.load('/eth/scene.gltf', (gltf) => {
           ethArray.push(gltf.scene);
           gltf.scene.scale.set(0.5, 0.5, 0.5);
           gltf.scene.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50);
