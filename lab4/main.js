@@ -172,6 +172,10 @@ const scene = new THREE.Scene();
           nft.rotation.y += 0.01;
         }
 
+        //add rotatin light through galaxy
+        directionalLight.position.x = Math.cos(Date.now() / 1000) * 3;
+        directionalLight.position.z = Math.sin(Date.now() / 1000) * 3;
+        directionalLight.position.y = Math.sin(Date.now() / 1000) * 3;
         
 
 			};
