@@ -42,7 +42,7 @@ const scene = new THREE.Scene();
 
       //texture for walls
       const textureLoader = new THREE.TextureLoader();
-      const wallTexture = textureLoader.load('public/bricks.jpg');
+      const wallTexture = textureLoader.load('/bricks.jpg');
       const wallMaterial = new THREE.MeshBasicMaterial({map: wallTexture});
       
       //walls
