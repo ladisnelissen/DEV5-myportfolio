@@ -177,7 +177,12 @@ const scene = new THREE.Scene();
         directionalLight.position.z = Math.sin(Date.now() / 1000) * 3;
         directionalLight.position.y = Math.sin(Date.now() / 1000) * 3;
 
-
+        //make eth float
+        for (let i = 0; i < ethArray.length; i++) {
+          ethArray[i].rotation.y += 0.01;
+        }
+        
 			};
+
 
 			animate();
