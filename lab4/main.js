@@ -7,6 +7,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 //import text geometry
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
+//import gltf loader
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 
 
@@ -120,7 +122,8 @@ const scene = new THREE.Scene();
       //add plane as grass
       const grass = new THREE.Mesh(
         new THREE.PlaneGeometry(20,20),
-        new THREE.MeshBasicMaterial({color: 0x00ff00})
+        new THREE.MeshBasicMaterial({map: textureLoader.load('/textures/bored.webp')})
+
       );
       grass.rotation.x = - Math.PI * 0.5;
       scene.add(grass);
@@ -136,13 +139,29 @@ const scene = new THREE.Scene();
       sphere.position.set(1, 1, 1);
       scene.add(sphere);
 
-
+      let nft;
+      const gltfLoader = new GLTFLoader();
+      gltfLoader.load('/textures/gltf/scene.gltf', (gltf) => {
+        nft = gltf.scene;
+        gltf.scene.scale.set(0.8, 0.8, 0.8);
+        gltf.scene.position.set(0, 0.5, 5);
+        grass.add(gltf.scene);
+        //rotate nft
+        gltf.scene.rotation.y = Math.PI * 0.5;
+        gltf.scene.rotation.x = Math.PI * 0.5;
+      });  
 
 			function animate() {
 				requestAnimationFrame( animate );
 
 				
 				renderer.render( scene, camera );
+
+        //make nft float
+        if(nft) {
+          nft.rotation.y += 0.01;
+        }
+
 			};
 
 			animate();
