@@ -31,12 +31,6 @@ const scene = new THREE.Scene();
       directionalLight.position.set(3, 3, 1);
       scene.add(directionalLight);
 
-      //add directional light helper
-      const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 2);
-      scene.add(directionalLightHelper);
-
-      
-
 
       //add orbit controls
       const controls = new OrbitControls(camera, renderer.domElement);
