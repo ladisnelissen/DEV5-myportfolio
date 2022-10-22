@@ -145,7 +145,6 @@ const scene = new THREE.Scene();
         gltf.scene.rotation.x = Math.PI * 0.5;
       });  
 
-
       //load 100 eth models
       const ethLoader = new GLTFLoader();
       const ethArray = [];
@@ -160,6 +159,12 @@ const scene = new THREE.Scene();
           gltf.scene.rotation.x = Math.PI * 0.5;
         });
       }
+
+      //set camera view to door and zoom out
+      camera.position.set(0, 1, 2);
+      camera.lookAt(0, 0, 0);
+      controls.update();
+
       
 			function animate() {
 				requestAnimationFrame( animate );
@@ -181,7 +186,13 @@ const scene = new THREE.Scene();
         for (let i = 0; i < ethArray.length; i++) {
           ethArray[i].rotation.y += 0.01;
         }
-        
+
+        //zoom camera out
+        if(camera.position.z > 10) {
+          camera.position.z -= 0.1;
+        }
+    
+
 			};
 
 
