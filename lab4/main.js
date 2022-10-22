@@ -80,38 +80,18 @@ const scene = new THREE.Scene();
       house.add(door);
 
       //add plane with name on top of door
+      const texture = new THREE.TextureLoader().load( '/ladis.jpg' );
+      const material = new THREE.MeshBasicMaterial( { map: texture } );
       const plane = new THREE.Mesh(
-        new THREE.PlaneGeometry(1,0.5),
-        new THREE.MeshBasicMaterial({color: 0xffffff})
-      );
-      plane.position.y = 1.3;
+        new THREE.PlaneGeometry(1,1),
+        material)
+      plane.position.y = 1.7;
       plane.position.z = 2 + 0.02;
       house.add(plane);
 
-      //add text to plane
-      const fontLoader = new FontLoader();
-      fontLoader.load('node_modules/three/examples/fonts/helvetiker_regular.typeface.json', (font) => {
-        const textGeometry = new TextGeometry(
-          'Ladis',
-          {
-            font: font,
-            size: 0.2,
-            height: 0.05,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 0.01,
-            bevelSize: 0.01,
-            bevelOffset: 0,
-            bevelSegments: 8
-          }
-        );
-        const textMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
-        const text = new THREE.Mesh(textGeometry, textMaterial);
-        text.position.y = 1.2;
-        text.position.z = 2 + 0.03;
-        text.position.x = -0.35;
-        house.add(text);
-      });
+      //add ladis.jpg as picture to plane
+      
+
 
       //add plane as grass
       const grass = new THREE.Mesh(
